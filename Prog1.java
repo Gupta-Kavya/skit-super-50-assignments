@@ -2,7 +2,6 @@
 // Assignment - 1
 // Added Task1 submission
 
-
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -23,7 +22,7 @@ class Mystring {
     // string. The method should remember the appended result.
 
     String append(String str1) {
-        this.str = str + str1;
+        this.str = str + str1; // Concatenting str1 to str every time.
         return str;
     }
 
@@ -39,6 +38,11 @@ class Mystring {
         int count = 0;
 
         for (int i = 0; i < str.length(); i++) {
+
+            // Here i am checking that if i am between two words or not.
+            // When i came to a word after traversing all the spaces i increase the count
+            // ans make space = true and make sure that i traverse whole word and again when
+            // space comes then i make space = false means i have counted one whole word.
 
             if (str.charAt(i) == ' ') {
                 space = false;
@@ -62,6 +66,9 @@ class Mystring {
         int left = 0;
         int right = str.length() - 1;
 
+        // comparing the first and second half of the word. If any character came
+        // different then return false else true.
+
         while (right > left) {
             if (str.charAt(right) != str.charAt(left)) {
                 return false;
@@ -78,18 +85,21 @@ class Mystring {
     // in the current string.
 
     void maxRepeat() {
-        int[] arr = new int[26];
+        int[] arr = new int[256]; // Declaring the hash array
 
-        Arrays.fill(arr, 0);
+        Arrays.fill(arr, 0); // Inititialize the array with value 0
+
+        // Populating the hash array
 
         for (int i = 0; i < str.length(); i++) {
 
             char ch = Character.toLowerCase(str.charAt(i));
 
-            if (ch >= 'a' && ch <= 'z')
-                arr[ch - 'a']++;
+            arr[ch]++;
 
         }
+
+        // Checking for max element by comparing frequency in hash array
 
         int ansIndex = -1;
         int ansFrequency = 0;
@@ -102,7 +112,7 @@ class Mystring {
         }
 
         if (ansIndex != -1) {
-            System.out.println((char) (ansIndex + 'a') + " -> " + ansFrequency);
+            System.out.println((char) (ansIndex) + " -> " + ansFrequency);
         } else {
             System.out.println("No letters found!");
         }
@@ -117,6 +127,9 @@ class Mystring {
         if (str == null || start < 0 || length < 0 || start >= str.length()) {
             return str;
         }
+
+        // I just remove the substring from (start + 1 to start + length - 1 ) and rest
+        // add all.
 
         return str = str.substring(0, start) + str.substring(start + length);
 
@@ -135,6 +148,10 @@ class Mystring {
         for (int i = 0; i < str.length(); i++) {
             char ch = str.charAt(i);
 
+            // if i encounterd space and als there is some value in temp then it means i
+            // traverse one whole word, so i added it into arr and reinitialize the temp;
+            // If no such i will keep appending in temp.
+
             if (ch == ' ') {
                 if (!temp.isEmpty()) {
                     arr[index++] = temp;
@@ -144,6 +161,8 @@ class Mystring {
                 temp = temp + ch;
             }
         }
+
+        // to insert last word left.
 
         if (!temp.isEmpty()) {
             arr[index++] = temp;
@@ -157,20 +176,24 @@ class Mystring {
 
     String reverse() {
 
-        String[] arr = split();
+        char[] arr = str.toCharArray(); // convert our string to character array
 
-        int left = 0;
-        int right = arr.length - 1;
+        int left = 0; // initializing left pointer to start of the array
+        int right = arr.length - 1; // initializing right pointer to end of the array
+
+        // start traversing and perform swapping at every step
 
         while (right > left) {
 
-            String temp = arr[right];
+            char temp = arr[right];
             arr[right] = arr[left];
             arr[left] = temp;
 
             left++;
             right--;
         }
+
+        // put the reversed array to string
 
         String reversed = "";
 
@@ -190,7 +213,7 @@ class Mystring {
 
     String shift(int n) {
 
-        n = n % str.length();
+        n = n % str.length(); //  Handling the case for n > string length
 
         return str.substring(str.length() - n) + str.substring(0, str.length() - n);
     }
@@ -200,8 +223,9 @@ class Mystring {
     // order.
 
     String sort() {
-        char[] arr = str.toCharArray();
-        Arrays.sort(arr);
+        char[] arr = str.toCharArray(); // converting string to character array
+        Arrays.sort(arr); // sorting the array - used predefined array sort function as it sorts in
+                          // optimized way according to size of the array.
         return str = new String(arr);
     }
 
@@ -210,9 +234,11 @@ class Mystring {
     // current string
 
     String replace(char a, char b) {
+        // This function replace only character values, as i am overloading it further for string also.
         String result = "";
         for (int i = 0; i < str.length(); i++) {
-            if (str.charAt(i) == a) {
+            if (str.charAt(i) == a) { // every time when ever i ge the occurenece of "a" in "str" then i replace it
+                                      // with "b".
                 result += b;
             } else {
                 result += str.charAt(i);
@@ -226,6 +252,7 @@ class Mystring {
     // current string
 
     String replace(String a, String b) {
+        // Replaces substring value also
         if (a == null || a.isEmpty())
             return str;
 
@@ -245,8 +272,6 @@ class Mystring {
 
 }
 
-
-
 public class Prog1 {
     public static void main(String[] args) {
 
@@ -258,8 +283,8 @@ public class Prog1 {
 
         Mystring str = new Mystring(st);
 
-        
         // Here providing options to user for performing different operations on string
+        // using switch - case
 
         while (true) {
             System.out.println("\nChoose an operation:");
