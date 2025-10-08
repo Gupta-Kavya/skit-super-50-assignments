@@ -1,5 +1,5 @@
-/**
-@filename - Prog1.java
+/*
+@filename - CustomString.java
 @description - String methods implementation usage
 @author - Kavya Gupta
 */
