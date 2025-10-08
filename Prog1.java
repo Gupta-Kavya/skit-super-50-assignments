@@ -1,6 +1,8 @@
-// Title - Java Programming Assignment
-// Assignment - 1
-// Added Task1 submission
+/**
+@filename - Prog1.java
+@description - String methods implementation
+@author - Kavya Gupta
+*/
 
 import java.util.Arrays;
 import java.util.Scanner;
