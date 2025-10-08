@@ -37,10 +37,10 @@ public class MyString {
         boolean inWord = false;
 
         for (int i = 0; i < value.length(); i++) {
-            char c = value.charAt(i);
+            char characterOfString = value.charAt(i);
 
             // Check if the character is a letter or digit
-            if (Character.isLetterOrDigit(c)) {
+            if (Character.isLetterOrDigit(characterOfString)) {
                 if (!inWord) {
                     count++;
                     inWord = true;
