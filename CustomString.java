@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 
 
-public class Prog1 {
+public class CustomString {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
