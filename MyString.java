@@ -6,7 +6,6 @@
 
 
 import java.util.Arrays;
-import java.util.Scanner;
 
 // writing custom "Mystring" class to perform operations on strings
 
