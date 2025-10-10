@@ -13,7 +13,7 @@ package Assignment_2;
 
 public class NumberUtilities {
 
-    // Function to find nth fibonaaci number in a sequence
+    // Function to find nth fibonacci number in a sequence
 
     int findFibonacciNumber(int number) {
         if (number == 0 || number == 1) {
