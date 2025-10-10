@@ -21,7 +21,7 @@ public class StringAndNumberOperations {
             System.out.println("1. Fibonacci Number");
             System.out.println("2. Check Prime Number");
             System.out.println("3. Binary to Decimal");
-            System.out.println("4. Convert Number to Words");
+            System.out.println("4. Convert Number to Word");
             System.out.println("5. Count Consonants in String");
             System.out.println("6. Expand String (char followed by digit)");
             System.out.println("7. Compress String");
