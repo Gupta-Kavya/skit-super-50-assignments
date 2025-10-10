@@ -1,6 +1,6 @@
 /*
 @filename - NumberUtilities.java
-@description - This class contains number-based utility functionss including:
+@description - This class contains number-based utility functions including:
                1. Finding the nth Fibonacci number in a sequence.
                2. Checking if a number is prime.
                3. Converting a binary number string to decimal.
@@ -100,4 +100,5 @@ public class NumberUtilities {
     }
 
 }
+
 
