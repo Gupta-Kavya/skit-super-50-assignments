@@ -363,7 +363,7 @@ public class StringUtilities {
         return camelCase;
     }
 
-    // Function to count number of unique palindrmes ina string
+    // Function to count number of unique palindromes in a string
 
     int countUniquePalindromes(String value) {
         if (value == null || value.isEmpty()) {
