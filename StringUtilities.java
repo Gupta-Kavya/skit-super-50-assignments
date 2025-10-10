@@ -1,7 +1,7 @@
 /*
 @filename - StringUtilities.java
 @description - This class contains string-based utility functions including:
-               1. Counting consonantss in a string.
+               1. Counting consonantsss in a string.
                2. Expanding characters in a string followed by digits.
                3. Compressing consecutive characters with their frequencies.
                4. Finding the length of the longest non-repeating substring.

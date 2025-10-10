@@ -1,6 +1,6 @@
 /*
 @filename - StringAndNumberOperations.java
-@description - String & Number Operations usage (Menu Driven)
+@description - String & Number Operations usage (Menu Driven Program)
 @author - Kavya Gupta
 */
 
