@@ -51,7 +51,7 @@ public class NumberUtilities {
         return (int) decimalNumber;
     }
 
-    // Fuction to convert number into words.
+    // Function to convert number into words.
 
     String convertNumberToWords(int number) {
         if (number == 0) {
