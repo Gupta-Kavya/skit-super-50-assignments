@@ -63,49 +63,53 @@ public class NumberUtilities {
     // Fuction to convert number into words.
 
     String convertNumberToWords(int number) {
-        if (number == 0) {
-            return "zero";
+    if (number == 0) {
+        return "zero";
+    }
+
+    if (number < 0) {
+        return "minus " + convertNumberToWords(-number);
+    }
+
+    if (number > 9999) {
+        return "Error: Only numbers up to 9999 (thousand range) are supported.";
+    }
+
+    String[] ones = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen" };
+
+    String[] tens = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+
+    String words = "";
+
+    if ((number / 1000) > 0) {
+        words += ones[number / 1000] + " thousand ";
+        number %= 1000;
+    }
+
+    if ((number / 100) > 0) {
+        words += ones[number / 100] + " hundred ";
+        number %= 100;
+    }
+
+    if (number > 0) {
+        if (!words.isEmpty()) {
+            words += "and ";
         }
 
-        if (number < 0) {
-            return "minus " + convertNumberToWords(-number);
-        }
-
-        String[] ones = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
-                "seventeen", "eighteen", "nineteen" };
-
-        String[] tens = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-
-        String words = "";
-
-        if ((number / 1000000) > 0) {
-            words += convertNumberToWords(number / 1000000) + " million ";
-            number %= 1000000;
-        }
-
-        if ((number / 1000) > 0) {
-            words += convertNumberToWords(number / 1000) + " thousand ";
-            number %= 1000;
-        }
-
-        if ((number / 100) > 0) {
-            words += convertNumberToWords(number / 100) + " hundred ";
-            number %= 100;
-        }
-
-        if (number > 0) {
-            if (number < 20) {
-                words += ones[number];
-            } else {
-                words += tens[number / 10];
-                if ((number % 10) > 0) {
-                    words += " " + ones[number % 10];
-                }
+        if (number < 20) {
+            words += ones[number];
+        } else {
+            words += tens[number / 10];
+            if ((number % 10) > 0) {
+                words += " " + ones[number % 10];
             }
         }
-
-        return words.trim();
     }
+
+    return words.trim();
+}
+
 
 }
