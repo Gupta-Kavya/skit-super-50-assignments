@@ -74,7 +74,7 @@ public class StringAndNumberOperations {
                     break;
 
                 case 4:
-                    System.out.print("Enter number to convert to words: ");
+                    System.out.print("Enter number to convert to words (numbers up to 9999 (thousand range) are supported): ");
                     String numInput = sc.nextLine();
                     if (numInput.matches("\\d+")) {
                         int num = Integer.parseInt(numInput);
