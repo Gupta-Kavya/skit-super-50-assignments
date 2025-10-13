@@ -44,7 +44,7 @@ public class NumberUtilities {
         int decimalNumber = 0;
 
         for (int i = binaryNumber.length() - 1; i >= 0; i--) {
-            if (binaryNumber.charAt(i) != 0 && binaryNumber.charAt(i) != 1) {
+            if (binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1') {
                 System.err.println("Error : Please enter valid binary number.");
                 return -1;
             }
