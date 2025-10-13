@@ -1,6 +1,6 @@
 /*
 @filename - NumberUtilities.java
-@description - This class contains number-based utility functions including:
+@description - This class contains number-based utility functionss including:
                1. Finding the nth Fibonacci number in a sequence.
                2. Checking if a number is prime.
                3. Converting a binary number string to decimal.
@@ -17,11 +17,6 @@ public class NumberUtilities {
     int findFibonacciNumber(int number) {
         if (number == 0 || number == 1) {
             return number;
-        }
-
-        if(number < 0){
-            System.err.println("Error : Please enter Positive Integers only.");
-            return -1;
         }
 
         return findFibonacciNumber(number - 1) + findFibonacciNumber(number - 2);
@@ -49,7 +44,7 @@ public class NumberUtilities {
         int decimalNumber = 0;
 
         for (int i = binaryNumber.length() - 1; i >= 0; i--) {
-            if(binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1'){
+            if (binaryNumber.charAt(i) != 0 && binaryNumber.charAt(i) != 1) {
                 System.err.println("Error : Please enter valid binary number.");
                 return -1;
             }
@@ -62,17 +57,17 @@ public class NumberUtilities {
 
     // Fuction to convert number into words.
 
-    String convertNumberToWords(int number) {
+   String convertNumberToWords(int number) {
+    if (number > 1000) {
+        return "Only numbers up to 1000 are accepted.";
+    }
+
     if (number == 0) {
         return "zero";
     }
 
     if (number < 0) {
         return "minus " + convertNumberToWords(-number);
-    }
-
-    if (number > 9999) {
-        return "Error: Only numbers up to 9999 (thousand range) are supported.";
     }
 
     String[] ones = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
@@ -83,21 +78,12 @@ public class NumberUtilities {
 
     String words = "";
 
-    if ((number / 1000) > 0) {
-        words += ones[number / 1000] + " thousand ";
-        number %= 1000;
-    }
-
     if ((number / 100) > 0) {
-        words += ones[(number / 100) % 10] + " hundred ";
+        words += ones[number / 100] + " hundred ";
         number %= 100;
     }
 
     if (number > 0) {
-        if (!words.isEmpty()) {
-            words += "and ";
-        }
-
         if (number < 20) {
             words += ones[number];
         } else {
