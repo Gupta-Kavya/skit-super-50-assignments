@@ -89,7 +89,7 @@ public class NumberUtilities {
     }
 
     if ((number / 100) > 0) {
-        words += ones[number / 100] + " hundred ";
+        words += ones[(number / 100) % 10] + " hundred ";
         number %= 100;
     }
 
