@@ -1,6 +1,6 @@
 /*
 @filename - My2048Game.java
-@description - Game Implementation
+@description - 2048 Game Implementation
 @author - Kavya Gupta
 */
 
@@ -252,5 +252,6 @@ public class My2048Game {
         }
         return true;
     }
+
 
 }
