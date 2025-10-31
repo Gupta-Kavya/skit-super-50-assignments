@@ -1,6 +1,6 @@
 /*
 @filename - MyPoint.java
-@description - Point class implementaton
+@description - Point class implementation
 @author - Kavya Gupta
 */
 
