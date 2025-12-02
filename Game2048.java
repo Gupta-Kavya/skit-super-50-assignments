@@ -1,6 +1,6 @@
 /*
 @filename - Game2048.java
-@description - Game class usage
+@description - 2048 Game class usage
 @author - Kavya Gupta
 */
 
