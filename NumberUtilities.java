@@ -8,7 +8,6 @@
 @author - Kavya Gupta
 */
 
-
 package Assignment_2;
 
 public class NumberUtilities {
@@ -45,6 +44,11 @@ public class NumberUtilities {
         int decimalNumber = 0;
 
         for (int i = binaryNumber.length() - 1; i >= 0; i--) {
+            if (binaryNumber.charAt(i) != '0' && binaryNumber.charAt(i) != '1') {
+                System.err.println("Error : Please enter valid binary number.");
+                return -1;
+            }
+
             decimalNumber += (binaryNumber.charAt(i) - '0') * Math.pow(2, binaryNumber.length() - i - 1);
         }
 
@@ -53,50 +57,45 @@ public class NumberUtilities {
 
     // Fuction to convert number into words.
 
-    String convertNumberToWords(int number) {
-        if (number == 0) {
-            return "zero";
-        }
+   String convertNumberToWords(int number) {
+    if (number > 1000) {
+        return "Only numbers up to 1000 are accepted.";
+    }
 
-        if (number < 0) {
-            return "minus " + convertNumberToWords(-number);
-        }
+    if (number == 0) {
+        return "zero";
+    }
 
-        String[] ones = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
-                "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
-                "seventeen", "eighteen", "nineteen" };
+    if (number < 0) {
+        return "minus " + convertNumberToWords(-number);
+    }
 
-        String[] tens = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+    String[] ones = { "", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+            "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen",
+            "seventeen", "eighteen", "nineteen" };
 
-        String words = "";
+    String[] tens = { "", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
 
-        if ((number / 1000000) > 0) {
-            words += convertNumberToWords(number / 1000000) + " million ";
-            number %= 1000000;
-        }
+    String words = "";
 
-        if ((number / 1000) > 0) {
-            words += convertNumberToWords(number / 1000) + " thousand ";
-            number %= 1000;
-        }
+    if ((number / 100) > 0) {
+        words += ones[number / 100] + " hundred ";
+        number %= 100;
+    }
 
-        if ((number / 100) > 0) {
-            words += convertNumberToWords(number / 100) + " hundred ";
-            number %= 100;
-        }
-
-        if (number > 0) {
-            if (number < 20) {
-                words += ones[number];
-            } else {
-                words += tens[number / 10];
-                if ((number % 10) > 0) {
-                    words += " " + ones[number % 10];
-                }
+    if (number > 0) {
+        if (number < 20) {
+            words += ones[number];
+        } else {
+            words += tens[number / 10];
+            if ((number % 10) > 0) {
+                words += " " + ones[number % 10];
             }
         }
-
-        return words.trim();
     }
+
+    return words.trim();
+}
+
 
 }
